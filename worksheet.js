@@ -1,16 +1,20 @@
 //  Part I
-
 // ----------------------------
-// write your own forEach() function. 
+// write your own forEach() function.
 // your function should take an array and a callback as input.
 // it should run the callback on each element in the array.
 // ----------------------------
+// on Arbiter: https://goo.gl/nch5zw
+function forEach(inputArray, callbackFunction) {
+  var outputArray = inputArray.map(callbackFunction)
+  return outputArray
+}
 
 //  Part II
 // ----------------------------
 // write your own map() function.
 // your function should take an array and a callback as input.
-// it should return a new array, where every element in the 
+// it should return a new array, where every element in the
 // original has been transformed by the callback. .
 // ----------------------------
 
@@ -19,25 +23,24 @@
 // ----------------------------
 // write your own filter() function.
 // your function should take an array and a callback as input.
-// it should return a new array, where elements have been 
-// kept or excluded according to the callback. 
+// it should return a new array, where elements have been
+// kept or excluded according to the callback.
 // ----------------------------
-
 
 //  Part IV
 // ----------------------------
 // write your own reduce() function.
 
-// this one's new. it should take an array, a callback and 
+// this one's new. it should take an array, a callback and
 // a starting value as input.
 
-// calling .reduce() should combine all the elements of the 
-// array into a single value. the starting value tells what to 
-// start with. 
+// calling .reduce() should combine all the elements of the
+// array into a single value. the starting value tells what to
+// start with.
 
-// the callback should take as input a "running total" and 
+// the callback should take as input a "running total" and
 // an array element, in that order. it should return an update
-// to the running total. 
+// to the running total.
 
 // look at the tests for clarification.
 // ----------------------------
@@ -64,7 +67,7 @@ var people = [
 // - and then sort the items alphabetically by fullname
 
 // store the resulting mapped, filtered, and sorted array
-// under the variable name `newCustomers`. i'll look 
+// under the variable name `newCustomers`. i'll look
 // for that name in my tests.
 // ----------------------------
 
@@ -74,5 +77,3 @@ var customers = [
     { first: 'Dave', last: 'Jones'},
     { first: 'Jack', last: 'White'}
 ]
-
-

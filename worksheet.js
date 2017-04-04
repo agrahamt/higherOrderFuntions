@@ -4,8 +4,10 @@
 // your function should take an array and a callback as input.
 // it should run the callback on each element in the array.
 // ----------------------------
-// on Arbiter: https://goo.gl/nch5zw
-function forEach(inputArray, callbackFunction) {
+// on Arbiter: https://goo.gl/XyBf80
+// I guess we were supposed to make it with a for loop, but I
+// thought we were expected to use higher order functions.
+function forEach (inputArray, callbackFunction) {
   var outputArray = inputArray.map(callbackFunction)
   return outputArray
 }
@@ -17,15 +19,29 @@ function forEach(inputArray, callbackFunction) {
 // it should return a new array, where every element in the
 // original has been transformed by the callback. .
 // ----------------------------
-
-
-//  Part III
-// ----------------------------
-// write your own filter() function.
-// your function should take an array and a callback as input.
-// it should return a new array, where elements have been
-// kept or excluded according to the callback.
-// ----------------------------
+// work in Arbiter: https://goo.gl/GZKdKc
+function map (inputArray, callbackFunction) {
+  var outputArray = []
+  for (var i = 0; i - inputArray.length; i++) {
+    outputArray[i] = callbackFunction(inputArray[i])
+  }
+  return outputArray
+}
+  //  Part III
+  // ----------------------------
+  // write your own filter() function.
+  // your function should take an array and a callback as input.
+  // it should return a new array, where elements have been
+  // kept or excluded according to the callback.
+  // ----------------------------
+// Arbiter testwork: https://goo.gl/e9Nx8z
+function filter (inputArray, callbackFunction) {
+  var outputArray = []
+  for (var i = 0; i < inputArray.length; i++) {
+    outputArray += callbackFunction(inputArray[i])
+  }
+  return outputArray
+}
 
 //  Part IV
 // ----------------------------

@@ -1,57 +1,70 @@
 //  Part I
-
 // ----------------------------
-// write your own forEach() function. 
+// write your own forEach() function.
 // your function should take an array and a callback as input.
 // it should run the callback on each element in the array.
 // ----------------------------
+// on Arbiter: https://goo.gl/XyBf80
+// I guess we were supposed to make it with a for loop, but I
+// thought we were expected to use higher order functions.
+function forEach (inputArray, callbackFunction) {
+  var outputArray = inputArray.map(callbackFunction)
+  return outputArray
+}
 
 //  Part II
 // ----------------------------
 // write your own map() function.
 // your function should take an array and a callback as input.
-// it should return a new array, where every element in the 
+// it should return a new array, where every element in the
 // original has been transformed by the callback. .
 // ----------------------------
-
-
-//  Part III
-// ----------------------------
-// write your own filter() function.
-// your function should take an array and a callback as input.
-// it should return a new array, where elements have been 
-// kept or excluded according to the callback. 
-// ----------------------------
-
+// work in Arbiter: https://goo.gl/GZKdKc
+function map (inputArray, callbackFunction) {
+  var outputArray = []
+  for (var i = 0; i - inputArray.length; i++) {
+    outputArray[i] = callbackFunction(inputArray[i])
+  }
+  return outputArray
+}
+  //  Part III
+  // ----------------------------
+  // write your own filter() function.
+  // your function should take an array and a callback as input.
+  // it should return a new array, where elements have been
+  // kept or excluded according to the callback.
+  // ----------------------------
+// Arbiter testwork: https://goo.gl/e9Nx8z
+function filter (inputArray, callbackFunction) {
+  var outputArray = []
+  for (var i = 0; i < inputArray.length; i++) {
+    outputArray += callbackFunction(inputArray[i])
+  }
+  return outputArray
+}
 
 //  Part IV
 // ----------------------------
 // write your own reduce() function.
 
-// this one's new. it should take an array, a callback and 
+// this one's new. it should take an array, a callback and
 // a starting value as input.
 
-// calling .reduce() should combine all the elements of the 
-// array into a single value. the starting value tells what to 
-// start with. 
+// calling .reduce() should combine all the elements of the
+// array into a single value. the starting value tells what to
+// start with.
 
-// the callback should take as input a "running total" and 
+// the callback should take as input a "running total" and
 // an array element, in that order. it should return an update
-// to the running total. 
+// to the running total.
 
 // look at the tests for clarification.
 // ----------------------------
 
-var reduce = function(arr,cb,start) {
-	arr.forEach(function(el) {
-		start = cb(start,el)
-	})
-	return start
-}
 
 //  HARD MODE
 // ----------------------------
-// using array.sort(), sort the following array
+// using the built-in array.sort(), sort the following array
 // of people by name
 // ----------------------------
 
@@ -68,6 +81,10 @@ var people = [
 // - filter for customers whose first-names start with 'J',
 // - map to their fullnames,
 // - and then sort the items alphabetically by fullname
+
+// store the resulting mapped, filtered, and sorted array
+// under the variable name `newCustomers`. i'll look
+// for that name in my tests.
 // ----------------------------
 
 var customers = [
@@ -76,8 +93,6 @@ var customers = [
     { first: 'Dave', last: 'Jones'},
     { first: 'Jack', last: 'White'}
 ]
-
-
 
 
 console.log('********************************************************************************************************************************************')
@@ -158,28 +173,23 @@ describe('reduce()', function(){
 			function(acc,el) {
 				return acc + `<a href="#${el.replace(' ','-')}">${el}</a>`
 			}, '')
-		assert.equal(htmlString, '<a href="#home">home</a><a href="#about">about</a><a href="#contact-us">contact us</a>')
+
+		assert.equal(htmlString, 
+			'<a href="#home">home</a><a href="#about">about</a><a href="#contact-us">contact us</a>')
 	})
 })
-'<a href="#home">home</a><a href="#about">about</a><a href="#contact-us">contact us</a>'
-'<a href="#home">home</a><a href="#about">about</a><a href="#contact-us">contact</a>'
-describe('array.sort()', function(){
-	it("should take two inputs", function(){
-		checkFuncBasics('people.sort')
-	})
-	it("Your function should have sorted the array called 'people' into alphabetical order", function(){
+
+describe('people', function(){
+	it("should be sorted into alphabetical order", function(){
 		expect(people[0].name).to.equal("Brian")
 		expect(people[1].name).to.equal("Jesse")
 		expect(people[2].name).to.equal("Justin")
 	})
 })
 
-describe('array.sort()', function(){
-	it("should ", function(){
-		checkFuncBasics('people.sort')
-	})
-	it("Your function should have filtered customers whose first names start with J, map to their full names and then sort the customers alphabetically", function(){
-		expect(results[0].fullname).to.equal("Jack White")
-		expect(results[1].fullname).to.equal("Joe Blogs")
+describe('newCustomers', function(){
+	it("`newCustomers` should be a transformation of the customers array according to the criteria described in worksheet.js", function(){
+		expect(newCustomers[0].fullname).to.equal("Jack White")
+		expect(newCustomers[1].fullname).to.equal("Joe Blogs")
 	})
 })

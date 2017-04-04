@@ -34,11 +34,13 @@ function map (inputArray, callbackFunction) {
   // it should return a new array, where elements have been
   // kept or excluded according to the callback.
   // ----------------------------
-// Arbiter testwork: https://goo.gl/e9Nx8z
+// Arbiter testwork: https://goo.gl/D3mC9X
 function filter (inputArray, callbackFunction) {
   var outputArray = []
   for (var i = 0; i < inputArray.length; i++) {
-    outputArray += callbackFunction(inputArray[i])
+    if (callbackFunction(inputArray[i])) {
+      outputArray.push(inputArray[i])
+    }
   }
   return outputArray
 }
@@ -60,7 +62,13 @@ function filter (inputArray, callbackFunction) {
 
 // look at the tests for clarification.
 // ----------------------------
-
+function reduce (inputArray, callbackFunction, element) {
+  var total = element
+  for (var i = 0; i < inputArray.length; i++) {
+    total = callbackFunction(total, inputArray[i])
+  }
+  return total
+}
 
 //  HARD MODE
 // ----------------------------
